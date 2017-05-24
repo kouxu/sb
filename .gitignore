@@ -1,0 +1,9 @@
+**/target
+**/log
+.doc
+.idea
+.tmp
+*.log
+*.iml
+*.DS_Store
+.project

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="warn" monitorInterval="30">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ABSOLUTE} %highlight{%-5p} [%15.15t] %-40.40c{1.} : %m%n"/>
+        </Console>
+        <RollingRandomAccessFile name="RollingRandomAccessFile" immediateFlush="false"
+                                 fileName="log/dev.log" filePattern="log/backup/dev-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="%d %highlight{%-5p} [%15.15t] %-40.40c{1.} : %m%n"/>
+            <DefaultRolloverStrategy max="100"/>/>
+            <SizeBasedTriggeringPolicy size="10M"/>
+        </RollingRandomAccessFile>
+    </appenders>
+    <loggers>
+        <AsyncRoot level="info" includeLocation="true">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingRandomAccessFile"/>
+        </AsyncRoot>
+    </loggers>
+
+</configuration>
